@@ -1,72 +1,82 @@
 <!doctype html><html lang="tr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Gizlilik Politikası — UniConnectly</title><style>
-:root{--bg:#fff;--fg:#1a1a1a;--muted:#666;--line:#e5e5e5;--accent:#6C4CE0;--card:#faf9ff}
-@media(prefers-color-scheme:dark){:root{--bg:#0f1115;--fg:#e8e8ea;--muted:#9aa0a6;--line:#242830;--accent:#9b7dff;--card:#161922}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:800px;margin:0 auto;padding:32px 20px 80px}
-header a{color:var(--accent);text-decoration:none;font-weight:600}
-h1{font-size:1.8rem;margin:.2em 0 .1em}h2{font-size:1.25rem;margin:1.6em 0 .4em;padding-top:.3em}h3{font-size:1.05rem;margin:1.2em 0 .3em}
-table{width:100%;border-collapse:collapse;margin:1em 0;font-size:.95rem;display:block;overflow-x:auto}
-th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--card)}
-ul{padding-left:1.3em}li{margin:.25em 0}a{color:var(--accent)}hr{border:none;border-top:1px solid var(--line);margin:2em 0}
-.updated{color:var(--muted);font-size:.85rem;margin-top:2.5em;border-top:1px solid var(--line);padding-top:1em}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:10px 0;display:block;text-decoration:none;color:var(--fg)}
-.card b{color:var(--accent)}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:400 700;font-display:swap;
+src:url('fonts/outfit-latin.woff2') format('woff2');
+unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:400 700;font-display:swap;
+src:url('fonts/outfit-latin-ext.woff2') format('woff2');
+unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--bg:#fff;--fg:#334155;--strong:#0f172a;--muted:#64748b;--line:#e2e8f0;--line-soft:#f1f5f9;--accent:#4f46e5;--surface:#f8fafc}
+@media(prefers-color-scheme:dark){:root{--bg:#020617;--fg:#cbd5e1;--strong:#f1f5f9;--muted:#94a3b8;--line:#1e293b;--line-soft:#0f172a;--accent:#818cf8;--surface:#0f172a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1.5rem 6rem}
+.top{border-bottom:1px solid var(--line);padding:1.5rem 0 1.25rem;margin-bottom:3rem}
+.top a{color:var(--muted);text-decoration:none;font-size:.8125rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.top a:hover{color:var(--accent)}
+h1,h2,h3{font-family:'Outfit',Inter,ui-sans-serif,system-ui,sans-serif;color:var(--strong);letter-spacing:-.02em}
+h1{font-size:2rem;line-height:1.2;font-weight:700;margin:0 0 1.75rem}
+h2{font-size:1.1875rem;font-weight:600;margin:2.75rem 0 .75rem;line-height:1.35}
+h3{font-size:1rem;font-weight:600;margin:1.75rem 0 .5rem}
+p{margin:0 0 1rem}
+strong{color:var(--strong);font-weight:600}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.9375rem;display:block;overflow-x:auto}
+th,td{border-bottom:1px solid var(--line);padding:.75rem .875rem;text-align:left;vertical-align:top}
+th{background:var(--surface);color:var(--strong);font-weight:600;font-size:.8125rem;
+letter-spacing:.03em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+tbody tr:last-child td{border-bottom:none}
+ol,ul{padding-left:1.25rem;margin:0 0 1rem}li{margin:.375rem 0}
+code{background:var(--surface);border:1px solid var(--line);border-radius:3px;
+padding:.0625rem .3125rem;font-size:.875em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+hr{border:none;border-top:1px solid var(--line);margin:2.5rem 0}
+.card{background:var(--surface);border-left:2px solid var(--accent);padding:1rem 1.25rem;margin:1.5rem 0}
+.card p:first-child{margin-top:0}.card p:last-child{margin-bottom:0}
+.meta{color:var(--muted);font-size:.8125rem;margin-top:4rem;border-top:1px solid var(--line);
+padding-top:1.25rem;line-height:1.6}
+.idx{display:block;padding:1.125rem 0;border-bottom:1px solid var(--line-soft);
+text-decoration:none;color:var(--strong)}
+.idx:hover b{color:var(--accent)}
+.idx b{font-family:'Outfit',Inter,sans-serif;font-weight:600;font-size:1.0625rem;letter-spacing:-.01em}
+.idx span{display:block;color:var(--muted);font-size:.8125rem;margin-top:.125rem;font-weight:400}
+.lead{color:var(--muted);font-size:1.0625rem;margin:0 0 2.5rem}
 </style></head>
-<body><div class="wrap"><header><a href="index.html">← UniConnectly · Yasal Belgeler</a></header><h1>Gizlilik Politikası</h1>
-<blockquote>Bu politika, gizliliğinize nasıl saygı gösterdiğimizi sade bir dille anlatır. Resmi/teknik</blockquote>
-<blockquote>ayrıntılar için <strong>Aydınlatma Metni</strong>&#x27;ne bakınız.</blockquote>
-<h2>Kısaca</h2>
-<p>UniConnectly, üniversite öğrencilerini topluluklar, etkinlikler ve şirketlerle buluşturan bir</p>
-<p>platformdur. Verilerinizi yalnızca size bu hizmeti sunmak, sizi korumak ve (yalnız izninizle)</p>
-<p>size fırsatlar önermek için kullanırız. <strong>Verilerinizi satmayız.</strong></p>
-<h2>1. Hangi verileri topluyoruz</h2>
-<p>Hesabınızı oluştururken verdikleriniz (ad, e-posta, üniversite/bölüm/sınıf, doğum tarihi, varsa</p>
-<p>telefon), profiliniz (avatar, biyografi, ilgi alanları) ve platformu kullanırken oluşan etkileşimler</p>
-<p>(üyelikler, etkinlik katılımı, mesajlar, öneri geri bildirimleri). Ayrıntılı liste Aydınlatma</p>
-<p>Metni §2&#x27;dedir.</p>
-<h2>2. Profilinizin görünürlüğü</h2>
-<p>Profiliniz (ad, üniversite, bölüm, avatar, ilgi alanları), bir topluluk platformunun doğası gereği</p>
-<p><strong>seçtiğiniz görünürlük kapsamında</strong> diğer üyelere, topluluklara ve şirketlere görünebilir.</p>
-<p>Görünürlüğü <strong>Ayarlar</strong>&#x27;dan kontrol edebilirsiniz. Özel mesajlarınız yalnız muhataplarınıza açıktır.</p>
-<h2>3. Önerileri nasıl sunuyoruz</h2>
-<p>Size uygun topluluk, etkinlik ve fırsatları önermek için **ilgi alanlarınızı, bölümünüzü ve</p>
-<p>uygulama içi etkileşimlerinizi** (beğeni / ilgilenmiyorum) dikkate alırız.</p>
+<body><div class="wrap">
+<div class="top"><a href="index.html">UniConnectly · Yasal Belgeler</a></div>
+<h1>Gizlilik Politikası</h1>
+<div class="card">Bu politika, gizliliğinize nasıl saygı gösterdiğimizi sade bir dille anlatır. Resmi/teknik ayrıntılar için <strong>Aydınlatma Metni</strong>'ne bakınız.</div>
+<h2 id="kisaca">Kısaca</h2>
+<p>UniConnectly, üniversite öğrencilerini topluluklar, etkinlikler ve şirketlerle buluşturan bir platformdur. Verilerinizi yalnızca size bu hizmeti sunmak, sizi korumak ve (yalnız izninizle) size fırsatlar önermek için kullanırız. <strong>Verilerinizi satmayız.</strong></p>
+<h2 id="1-hangi-verileri-topluyoruz">1. Hangi verileri topluyoruz</h2>
+<p>Hesabınızı oluştururken verdikleriniz (ad, e-posta, üniversite/bölüm/sınıf, doğum tarihi, varsa telefon), profiliniz (avatar, biyografi, ilgi alanları) ve platformu kullanırken oluşan etkileşimler (üyelikler, etkinlik katılımı, mesajlar, öneri geri bildirimleri). Ayrıntılı liste Aydınlatma Metni §2'dedir.</p>
+<h2 id="2-profilinizin-gorunurlugu">2. Profilinizin görünürlüğü</h2>
+<p>Profiliniz (ad, üniversite, bölüm, avatar, ilgi alanları), bir topluluk platformunun doğası gereği <strong>seçtiğiniz görünürlük kapsamında</strong> diğer üyelere, topluluklara ve şirketlere görünebilir. Görünürlüğü <strong>Ayarlar</strong>'dan kontrol edebilirsiniz. Özel mesajlarınız yalnız muhataplarınıza açıktır.</p>
+<h2 id="3-onerileri-nasil-sunuyoruz">3. Önerileri nasıl sunuyoruz</h2>
+<p>Size uygun topluluk, etkinlik ve fırsatları önermek için <strong>ilgi alanlarınızı, bölümünüzü ve uygulama içi etkileşimlerinizi</strong> (beğeni / ilgilenmiyorum) dikkate alırız.</p>
 <ul>
 <li>Bu öneriler <strong>bilgilendiricidir</strong>; hakkınızda hukuki/önemli bir otomatik karar vermez.</li>
-<li><strong>&quot;Neden bu öneri?&quot;</strong> ipucuyla şeffaflık sunarız ve önerileri <strong>kapatabilir/itiraz edebilirsiniz.</strong></li>
-<li>&quot;İlgilenmiyorum&quot; tercihiniz <strong>gizlidir ve üçüncü taraflarla paylaşılmaz.</strong></li>
+<li><strong>"Neden bu öneri?"</strong> ipucuyla şeffaflık sunarız ve önerileri <strong>kapatabilir/itiraz edebilirsiniz.</strong></li>
+<li>"İlgilenmiyorum" tercihiniz <strong>gizlidir ve üçüncü taraflarla paylaşılmaz.</strong></li>
 </ul>
-<blockquote>Önerinin *çalışma ayrıntıları* (hangi faktöre ne ağırlık verildiği) ticari sır ve güvenlik gereği</blockquote>
-<blockquote>paylaşılmaz; ancak hangi *bilgileri kullandığımızı* yukarıda açıkça belirttik.</blockquote>
-<h2>4. Şirketlerle paylaşım (kariyer keşfi)</h2>
-<p>Şirketler sizi <strong>birey olarak görmez.</strong> Yalnız <strong>açık rızanız + topluluğunuzun onayı</strong> varsa,</p>
-<p>şirketler &quot;şu hedef kitleye şu topluluk üzerinden ulaşabilirim&quot; şeklinde **agregat (en az 5 kişi),</p>
-<p>kişisel bilgi içermeyen** bir görünüm elde eder. Adınız, iletişiminiz ve tercihleriniz paylaşılmaz.</p>
-<p>İstediğiniz an kapatabilirsiniz.</p>
-<h2>5. Verilerinizi kimlerle paylaşıyoruz</h2>
-<p>Yalnızca hizmeti çalıştıran altyapı sağlayıcılarıyla (Supabase — AB/Almanya; Cloudflare — depolama/CDN),</p>
-<p>sözleşmeli ve sınırlı amaçla. <strong>Reklam ağlarına veri satışı/paylaşımı yapmayız.</strong></p>
-<h2>6. Çerezler / izleme</h2>
-<p>Mobil uygulamada reklam/izleme çerezi kullanmayız. Web panelinde zorunlu olmayan çerezler **yalnız</p>
-<p>izninizle** çalışır (bkz. Çerez Bildirimi).</p>
-<h2>7. Güvenlik</h2>
-<p>Verilerinizi korumak için aktarımda ve saklamada <strong>şifreleme</strong>, <strong>satır düzeyinde erişim kontrolü</strong>,</p>
-<p><strong>denetim kayıtları</strong> ve <strong>erişim sınırlandırma</strong> gibi teknik ve idari tedbirler uygularız.</p>
-<p>*(Saldırı yüzeyini artırmamak için güvenlik yapılandırmasının ayrıntıları paylaşılmaz.)*</p>
-<h2>8. Saklama ve silme</h2>
-<p>Verileriniz hesabınız aktif olduğu sürece saklanır. Hesabınızı sildiğinizde 24 saatlik geri-alma</p>
-<p>penceresinden sonra kalıcı olarak silinir; yalnız yasal ispat gereği zorunlu kayıtlar (rıza geçmişi</p>
-<p>gibi, IP&#x27;siz) sınırlı süre tutulur.</p>
-<h2>9. Küçükler</h2>
-<p>Platform <strong>16 yaş altına kapalıdır.</strong> 16-18 yaş arası küçükler veli/vasi onayıyla katılır ve</p>
-<p><strong>ticari paylaşım (kariyer keşfi) ile pazarlama iletişiminden muaftır</strong> (bkz. Aydınlatma Metni §7).</p>
-<h2>10. Haklarınız ve iletişim</h2>
-<p>KVKK Md. 11 haklarınızı uygulama içinden veya <code>info@uniconnectly.com</code> üzerinden kullanabilirsiniz</p>
-<p>(erişim, düzeltme, silme, veri indirme, itiraz, profilleme/öneri kapatma).</p>
-<h2>11. Değişiklikler</h2>
-<p>Bu politikayı güncellersek sizi bilgilendiririz; önemli değişikliklerde girişte yeniden onayınızı</p>
-<p>isteyebiliriz.</p>
-<p class="updated">Bu belge UniConnectly mobil uygulaması için yayımlanmıştır. Güncelleme: 2026-07-06.</p>
+<div class="card">Önerinin <em>çalışma ayrıntıları</em> (hangi faktöre ne ağırlık verildiği) ticari sır ve güvenlik gereği paylaşılmaz; ancak hangi <em>bilgileri kullandığımızı</em> yukarıda açıkça belirttik.</div>
+<h2 id="4-sirketlerle-paylasim-kariyer-kesfi">4. Şirketlerle paylaşım (kariyer keşfi)</h2>
+<p>Şirketler sizi <strong>birey olarak görmez.</strong> Yalnız <strong>açık rızanız + topluluğunuzun onayı</strong> varsa, şirketler "şu hedef kitleye şu topluluk üzerinden ulaşabilirim" şeklinde <strong>agregat (en az 5 kişi), kişisel bilgi içermeyen</strong> bir görünüm elde eder. Adınız, iletişiminiz ve tercihleriniz paylaşılmaz. İstediğiniz an kapatabilirsiniz.</p>
+<h2 id="5-verilerinizi-kimlerle-paylasiyoruz">5. Verilerinizi kimlerle paylaşıyoruz</h2>
+<p>Yalnızca hizmeti çalıştıran altyapı sağlayıcılarıyla (Supabase — AB/Almanya; Cloudflare — depolama/CDN), sözleşmeli ve sınırlı amaçla. <strong>Reklam ağlarına veri satışı/paylaşımı yapmayız.</strong></p>
+<h2 id="6-cerezler-izleme">6. Çerezler / izleme</h2>
+<p>Mobil uygulamada reklam/izleme çerezi kullanmayız. Web panelinde zorunlu olmayan çerezler <strong>yalnız izninizle</strong> çalışır (bkz. Çerez Bildirimi).</p>
+<h2 id="7-guvenlik">7. Güvenlik</h2>
+<p>Verilerinizi korumak için aktarımda ve saklamada <strong>şifreleme</strong>, <strong>satır düzeyinde erişim kontrolü</strong>, <strong>denetim kayıtları</strong> ve <strong>erişim sınırlandırma</strong> gibi teknik ve idari tedbirler uygularız. <em>(Saldırı yüzeyini artırmamak için güvenlik yapılandırmasının ayrıntıları paylaşılmaz.)</em></p>
+<h2 id="8-saklama-ve-silme">8. Saklama ve silme</h2>
+<p>Verileriniz hesabınız aktif olduğu sürece saklanır. Hesabınızı sildiğinizde silme <strong>anında</strong> gerçekleşir ve <strong>geri alınamaz</strong> — bekleme süresi yoktur, işlemi iptal edemezsiniz. Yalnız yasal ispat gereği zorunlu kayıtlar (rıza geçmişi gibi, IP'siz) sınırlı süre tutulur.</p>
+<h2 id="9-kucukler">9. Küçükler</h2>
+<p>Platform <strong>16 yaş altına kapalıdır.</strong> 16-18 yaş arası küçükler veli/vasi onayıyla katılır ve <strong>ticari paylaşım (kariyer keşfi) ile pazarlama iletişiminden muaftır</strong> (bkz. Aydınlatma Metni §7).</p>
+<h2 id="10-haklariniz-ve-iletisim">10. Haklarınız ve iletişim</h2>
+<p>KVKK Md. 11 haklarınızı uygulama içinden veya <code>info@uniconnectly.com</code> üzerinden kullanabilirsiniz (erişim, düzeltme, silme, veri indirme, itiraz, profilleme/öneri kapatma).</p>
+<h2 id="11-degisiklikler">11. Değişiklikler</h2>
+<p>Bu politikayı güncellersek sizi bilgilendiririz; önemli değişikliklerde girişte yeniden onayınızı isteyebiliriz.</p>
+<p class="meta">Bu belge UniConnectly tarafından yayımlanmıştır. Yürürlük tarihi: <strong>5 Ağustos 2026</strong>.</p>
 </div></body></html>

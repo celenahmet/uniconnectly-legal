@@ -1,32 +1,60 @@
 <!doctype html><html lang="tr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>KVKK Aydınlatma Metni — UniConnectly</title><style>
-:root{--bg:#fff;--fg:#1a1a1a;--muted:#666;--line:#e5e5e5;--accent:#6C4CE0;--card:#faf9ff}
-@media(prefers-color-scheme:dark){:root{--bg:#0f1115;--fg:#e8e8ea;--muted:#9aa0a6;--line:#242830;--accent:#9b7dff;--card:#161922}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:800px;margin:0 auto;padding:32px 20px 80px}
-header a{color:var(--accent);text-decoration:none;font-weight:600}
-h1{font-size:1.8rem;margin:.2em 0 .1em}h2{font-size:1.25rem;margin:1.6em 0 .4em;padding-top:.3em}h3{font-size:1.05rem;margin:1.2em 0 .3em}
-table{width:100%;border-collapse:collapse;margin:1em 0;font-size:.95rem;display:block;overflow-x:auto}
-th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--card)}
-ul{padding-left:1.3em}li{margin:.25em 0}a{color:var(--accent)}hr{border:none;border-top:1px solid var(--line);margin:2em 0}
-.updated{color:var(--muted);font-size:.85rem;margin-top:2.5em;border-top:1px solid var(--line);padding-top:1em}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:10px 0;display:block;text-decoration:none;color:var(--fg)}
-.card b{color:var(--accent)}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:400 700;font-display:swap;
+src:url('fonts/outfit-latin.woff2') format('woff2');
+unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:400 700;font-display:swap;
+src:url('fonts/outfit-latin-ext.woff2') format('woff2');
+unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--bg:#fff;--fg:#334155;--strong:#0f172a;--muted:#64748b;--line:#e2e8f0;--line-soft:#f1f5f9;--accent:#4f46e5;--surface:#f8fafc}
+@media(prefers-color-scheme:dark){:root{--bg:#020617;--fg:#cbd5e1;--strong:#f1f5f9;--muted:#94a3b8;--line:#1e293b;--line-soft:#0f172a;--accent:#818cf8;--surface:#0f172a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1.5rem 6rem}
+.top{border-bottom:1px solid var(--line);padding:1.5rem 0 1.25rem;margin-bottom:3rem}
+.top a{color:var(--muted);text-decoration:none;font-size:.8125rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.top a:hover{color:var(--accent)}
+h1,h2,h3{font-family:'Outfit',Inter,ui-sans-serif,system-ui,sans-serif;color:var(--strong);letter-spacing:-.02em}
+h1{font-size:2rem;line-height:1.2;font-weight:700;margin:0 0 1.75rem}
+h2{font-size:1.1875rem;font-weight:600;margin:2.75rem 0 .75rem;line-height:1.35}
+h3{font-size:1rem;font-weight:600;margin:1.75rem 0 .5rem}
+p{margin:0 0 1rem}
+strong{color:var(--strong);font-weight:600}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.9375rem;display:block;overflow-x:auto}
+th,td{border-bottom:1px solid var(--line);padding:.75rem .875rem;text-align:left;vertical-align:top}
+th{background:var(--surface);color:var(--strong);font-weight:600;font-size:.8125rem;
+letter-spacing:.03em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+tbody tr:last-child td{border-bottom:none}
+ol,ul{padding-left:1.25rem;margin:0 0 1rem}li{margin:.375rem 0}
+code{background:var(--surface);border:1px solid var(--line);border-radius:3px;
+padding:.0625rem .3125rem;font-size:.875em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+hr{border:none;border-top:1px solid var(--line);margin:2.5rem 0}
+.card{background:var(--surface);border-left:2px solid var(--accent);padding:1rem 1.25rem;margin:1.5rem 0}
+.card p:first-child{margin-top:0}.card p:last-child{margin-bottom:0}
+.meta{color:var(--muted);font-size:.8125rem;margin-top:4rem;border-top:1px solid var(--line);
+padding-top:1.25rem;line-height:1.6}
+.idx{display:block;padding:1.125rem 0;border-bottom:1px solid var(--line-soft);
+text-decoration:none;color:var(--strong)}
+.idx:hover b{color:var(--accent)}
+.idx b{font-family:'Outfit',Inter,sans-serif;font-weight:600;font-size:1.0625rem;letter-spacing:-.01em}
+.idx span{display:block;color:var(--muted);font-size:.8125rem;margin-top:.125rem;font-weight:400}
+.lead{color:var(--muted);font-size:1.0625rem;margin:0 0 2.5rem}
 </style></head>
-<body><div class="wrap"><header><a href="index.html">← UniConnectly · Yasal Belgeler</a></header><h1>Kişisel Verilerin Korunması ve İşlenmesi Aydınlatma Metni</h1>
-<blockquote>Bu metin 6698 sayılı Kişisel Verilerin Korunması Kanunu (<strong>KVKK</strong>) <strong>Md. 10</strong> kapsamında bir</blockquote>
-<blockquote><strong>aydınlatma</strong> metnidir — sizi bilgilendirir, onay/rıza talep etmez. Açık rızaya tabi opsiyonel</blockquote>
-<blockquote>işlemeler ayrı <strong>Açık Rıza Metni</strong> ile alınır. (KVKK Kurulu yerleşik içtihadı: aydınlatma ve açık</blockquote>
-<blockquote>rıza ayrı belgelerdir.)</blockquote>
-<h2>1. Veri Sorumlusu</h2>
-<p>UniConnectly bir dijital platformdur. Bu platform aracılığıyla işlenen kişisel verilerin veri</p>
-<p>sorumlusu, platformu işleten <strong>platform işletmecisi</strong>&#x27;dir.</p>
+<body><div class="wrap">
+<div class="top"><a href="index.html">UniConnectly · Yasal Belgeler</a></div>
+<h1>Kişisel Verilerin Korunması ve İşlenmesi Aydınlatma Metni</h1>
+<div class="card">Bu metin 6698 sayılı Kişisel Verilerin Korunması Kanunu (<strong>KVKK</strong>) <strong>Md. 10</strong> kapsamında bir <strong>aydınlatma</strong> metnidir — sizi bilgilendirir, onay/rıza talep etmez. Açık rızaya tabi opsiyonel işlemeler ayrı <strong>Açık Rıza Metni</strong> ile alınır. (KVKK Kurulu yerleşik içtihadı: aydınlatma ve açık rıza ayrı belgelerdir.)</div>
+<h2 id="1-veri-sorumlusu">1. Veri Sorumlusu</h2>
+<p>UniConnectly bir dijital platformdur. Bu platform aracılığıyla işlenen kişisel verilerin veri sorumlusu, platformu işleten <strong>platform işletmecisi</strong>'dir.</p>
 <ul>
 <li><strong>Veri sorumlusu / işletmeci:</strong> <code>UniConnectly</code></li>
 <li><strong>Başvuru ve iletişim (KVKK):</strong> <code>info@uniconnectly.com</code></li>
 </ul>
-<h2>2. İşlediğimiz Kişisel Veriler</h2>
+<h2 id="2-isledigimiz-kisisel-veriler">2. İşlediğimiz Kişisel Veriler</h2>
 <table><thead><tr><th>Kategori</th><th>Veriler</th><th>Kaynak</th></tr></thead><tbody>
 <tr><td>Kimlik</td><td>Ad, soyad</td><td>Sizin girişiniz</td></tr>
 <tr><td>İletişim</td><td>E-posta, telefon (opsiyonel)</td><td>Sizin girişiniz</td></tr>
@@ -36,13 +64,9 @@ ul{padding-left:1.3em}li{margin:.25em 0}a{color:var(--accent)}hr{border:none;bor
 <tr><td>Platform etkileşimi</td><td>Topluluk üyelikleri, etkinlik katılım/check-in, öneri geri bildirimleriniz (beğeni / ilgilenmiyorum), mesajlaşma</td><td>Kullanımınız</td></tr>
 <tr><td>İşlem güvenliği</td><td>Son giriş zamanı, son giriş IP adresi (IPv4) ve cihaz bilgisi, cihaz saat dilimi</td><td>Otomatik</td></tr>
 </tbody></table>
-<p><strong>IP adresi (sınırlı, güvenlik amaçlı işleme):</strong> Hesabınızın güvenliği için (yeni cihaz/şüpheli</p>
-<p>giriş uyarısı ve profil &quot;Güvenlik&quot; kartında son girişinizi gösterme) giriş IP adresiniz yalnızca</p>
-<p>giriş güvenliği kayıtlarında (<code>user_login_events</code>) tutulur; <strong>profil başına yalnızca en son 20 giriş</strong></p>
-<p>ve <strong>azami 180 gün</strong> ile sınırlıdır, ardından otomatik silinir. Pazarlama/analitik amacıyla IP işlemeyiz.</p>
-<p><strong>İşlemediklerimiz (veri minimizasyonu):</strong> CV/özgeçmiş toplamayız. Tam cihaz parmak izi tutmaz,</p>
-<p>pazarlama takip pikseli / oturum kaydı (session recording) kullanmayız.</p>
-<h2>3. İşleme Amaçları ve Hukuki Sebepler (KVKK Md. 5)</h2>
+<p><strong>IP adresi (sınırlı, güvenlik amaçlı işleme):</strong> Hesabınızın güvenliği için (yeni cihaz/şüpheli giriş uyarısı ve profil "Güvenlik" kartında son girişinizi gösterme) giriş IP adresiniz yalnızca giriş güvenliği kayıtlarında (<code>user_login_events</code>) tutulur; <strong>profil başına yalnızca en son 20 giriş</strong> ve <strong>azami 180 gün</strong> ile sınırlıdır, ardından otomatik silinir. Pazarlama/analitik amacıyla IP işlemeyiz.</p>
+<p><strong>İşlemediklerimiz (veri minimizasyonu):</strong> CV/özgeçmiş toplamayız. Tam cihaz parmak izi tutmaz, pazarlama takip pikseli / oturum kaydı (session recording) kullanmayız.</p>
+<h2 id="3-isleme-amaclari-ve-hukuki-sebepler-kvkk-md-5">3. İşleme Amaçları ve Hukuki Sebepler (KVKK Md. 5)</h2>
 <p><strong>a) Sözleşmenin ifası (Md. 5/2-c) — üyelikle talep ettiğiniz hizmetin kendisi:</strong></p>
 <ul>
 <li>Hesap oluşturma, profil ve eğitim bilgisi yönetimi</li>
@@ -55,59 +79,47 @@ ul{padding-left:1.3em}li{margin:.25em 0}a{color:var(--accent)}hr{border:none;bor
 <li>Platform güvenliği, kötüye kullanım/sahtekârlık önleme</li>
 <li><strong>Kişiselleştirilmiş öneriler:</strong> Size uygun topluluk, etkinlik ve fırsatları önermek için ilgi</li>
 </ul>
-<p>  alanlarınızı, eğitim bilginizi ve uygulama içi etkileşimlerinizi değerlendiririz. Bu öneriler</p>
-<p>  *bilgilendirici niteliktedir; hakkınızda hukuki sonuç doğuran tamamen otomatik bir karar değildir.*</p>
-<p>  Önerileri <strong>kapatma ve itiraz etme</strong> hakkınız vardır (bkz. Md. 6).</p>
-<p>**c) Açık rıza (Md. 5/1-a) — yalnız aşağıdaki opsiyonel işlemeler, ayrı Açık Rıza Metni ile,</p>
-<p>varsayılan KAPALI, istediğiniz an geri çekilebilir:**</p>
+<p>alanlarınızı, eğitim bilginizi ve uygulama içi etkileşimlerinizi değerlendiririz. Bu öneriler <em>bilgilendirici niteliktedir; hakkınızda hukuki sonuç doğuran tamamen otomatik bir karar değildir.</em> Önerileri <strong>kapatma ve itiraz etme</strong> hakkınız vardır (bkz. Md. 6).</p>
+<p><strong>c) Açık rıza (Md. 5/1-a) — yalnız aşağıdaki opsiyonel işlemeler, ayrı Açık Rıza Metni ile, varsayılan KAPALI, istediğiniz an geri çekilebilir:</strong></p>
 <ul>
 <li>Pazarlama/duyuru iletişimi (e-posta/bildirim)</li>
 <li>Kullanım analitiği (default kapalı)</li>
 <li><strong>Kariyer keşfi / hedef-kitle paylaşımı:</strong> Açık rızanızla, ilgili şirketlerin sizi **yalnızca</li>
 </ul>
-<p>  üyesi olduğunuz topluluklar üzerinden, agregat (en az 5 kişilik gruplar) ve kişisel bilginiz</p>
-<p>  paylaşılmadan** keşfedebilmesi. Bireysel kimliğiniz, iletişiminiz veya öneri tercihleriniz</p>
-<p>  şirketlerle <strong>paylaşılmaz.</strong> Bu paylaşımı istediğiniz an kapatabilirsiniz.</p>
-<blockquote>Not: Beğeni/ilgilenmiyorum gibi geri bildirimleriniz yalnız size daha iyi öneri sunmak için</blockquote>
-<blockquote>kullanılır; <strong>üçüncü taraflarla paylaşılmaz.</strong></blockquote>
-<h2>4. Verilerin Aktarılması (KVKK Md. 8-9)</h2>
+<p>üyesi olduğunuz topluluklar üzerinden, agregat (en az 5 kişilik gruplar) ve kişisel bilginiz paylaşılmadan<strong> keşfedebilmesi. Bireysel kimliğiniz, iletişiminiz veya öneri tercihleriniz şirketlerle </strong>paylaşılmaz.** Bu paylaşımı istediğiniz an kapatabilirsiniz.</p>
+<div class="card">Not: Beğeni/ilgilenmiyorum gibi geri bildirimleriniz yalnız size daha iyi öneri sunmak için kullanılır; <strong>üçüncü taraflarla paylaşılmaz.</strong></div>
+<h2 id="4-verilerin-aktarilmasi-kvkk-md-8-9">4. Verilerin Aktarılması (KVKK Md. 8-9)</h2>
 <p>Hizmeti sunmak için aşağıdaki <strong>veri işleyenlerle</strong> sözleşmeli (DPA) çalışırız:</p>
 <table><thead><tr><th>İşleyen</th><th>Amaç</th><th>Lokasyon</th><th>Durum</th></tr></thead><tbody>
 <tr><td>Supabase</td><td>Veritabanı, kimlik doğrulama, depolama</td><td><strong>AB (Frankfurt/Almanya)</strong></td><td>Aktif</td></tr>
 <tr><td>Cloudflare R2</td><td>Dosya depolama + içerik dağıtım (CDN)</td><td>Global edge</td><td>Aktif</td></tr>
-<tr><td>E-posta sağlayıcı</td><td>İşlemsel e-posta (doğrulama, bildirim)</td><td><code>AB/Türkiye (KVKK uyumlu)</code></td><td>Aktif</td></tr>
-<tr><td>Push / analitik / hata-izleme</td><td>Bildirim, ölçüm, hata ayıklama</td><td>—</td><td><strong>Planlanan</strong> (henüz aktif değil)</td></tr>
+<tr><td>Resend</td><td>İşlemsel e-posta gönderimi (doğrulama, şifre sıfırlama, hesap bildirimleri)</td><td><strong>AB (İrlanda)</strong></td><td>Aktif</td></tr>
+<tr><td>Cloudflare Email Routing</td><td>Bize yazdığınız e-postaların iletilmesi (<code>info@uniconnectly.com</code>)</td><td>Global edge</td><td>Aktif</td></tr>
+<tr><td>Google Firebase Cloud Messaging</td><td>Anlık bildirim (push) gönderimi — cihaz bildirim jetonu</td><td>ABD</td><td>Aktif</td></tr>
+<tr><td>Analitik / hata-izleme</td><td>Ölçüm, hata ayıklama</td><td>—</td><td><strong>Planlanan</strong> (henüz aktif değil)</td></tr>
 </tbody></table>
-<p><strong>Yurt dışına aktarım (Md. 9):</strong> Verileriniz, barındırma altyapısı gereği **Avrupa Birliği</p>
-<p>(Almanya)** sunucularında işlenir. Bu aktarım KVKK Md. 9&#x27;da öngörülen uygun güvence dayanağıyla yapılır.</p>
-<h2>5. Saklama Süreleri</h2>
+<p><strong>Yurt dışına aktarım (Md. 9):</strong> Verileriniz, barındırma altyapısı gereği <strong>Avrupa Birliği</strong> (Almanya, İrlanda) sunucularında işlenir. Anlık bildirim gönderimi için cihaz bildirim jetonunuz <strong>ABD</strong>'de bulunan Google Firebase Cloud Messaging altyapısına aktarılır; bu jeton tek başına kimliğinizi göstermez ve yalnızca bildirim iletmek için kullanılır. Bu aktarımlar KVKK Md. 9'da öngörülen uygun güvence dayanaklarıyla yapılır.</p>
+<h2 id="5-saklama-sureleri">5. Saklama Süreleri</h2>
 <table><thead><tr><th>Veri</th><th>Süre</th></tr></thead><tbody>
 <tr><td>Aktif hesap verisi</td><td>Hesap aktif olduğu sürece</td></tr>
-<tr><td>Hesap silme</td><td>Talepte soft-delete (24 saat geri-alma) → ardından kalıcı silme</td></tr>
-<tr><td>Rıza/onay kayıtları (<code>user_consents</code>, kabul kayıtları)</td><td>İspat için hesap silindikten sonra azami genel zamanaşımı süresi, sonra imha</td></tr>
+<tr><td>Hesap silme</td><td>Talep <strong>anında</strong> işlenir: profil, içerikleriniz ve yüklediğiniz dosyalar geri alınamaz biçimde silinir. Bekleme veya geri-alma penceresi <strong>yoktur</strong></td></tr>
+<tr><td>Rıza/onay kayıtları (<code>user_consents</code>, <code>user_legal_acceptances</code>)</td><td>İspat yükümlülüğü nedeniyle hesap silindikten sonra <strong>10 yıl</strong> (genel zamanaşımı), ardından imha. Bu kayıtlarda kimliğiniz doğrudan tutulmaz; geri döndürülemez biçimde şifrelenmiş bir referans (<code>subject_hash</code>) saklanır</td></tr>
 <tr><td>Giriş güvenliği kayıtları (<code>user_login_events</code> — giriş IP/cihaz)</td><td>Profil başına en son 20 giriş + azami 180 gün; sonra otomatik imha</td></tr>
 <tr><td>Denetim kayıtları (<code>audit_logs</code>)</td><td>Yasal yükümlülük süresince</td></tr>
 </tbody></table>
-<h2>6. Haklarınız (KVKK Md. 11)</h2>
-<p>Uygulama içinden veya <code>info@uniconnectly.com</code> üzerinden şu haklarınızı kullanabilirsiniz:</p>
-<p>verilerinizin işlenip işlenmediğini öğrenme, bilgi talep etme, amaca uygun kullanılıp kullanılmadığını</p>
-<p>öğrenme, aktarıldığı tarafları bilme, **düzeltme, silme/yok edilmesini isteme, taşınabilir formatta</p>
-<p>talep etme (veri indirme), işlemeye itiraz** (öneri/profillemeyi kapatma dâhil) ve Kurul&#x27;a şikâyet.</p>
-<p><strong>Yanıt süresi:</strong> Yasal azami 30 gün; hedefimiz çok daha kısa (silme talebi 24 saat).</p>
-<h2>7. Küçüklerin Verisi</h2>
-<p>UniConnectly bir üniversite öğrenci platformudur ve <strong>16 yaşından küçük kullanıcı kabul etmez.</strong></p>
-<p>Kayıt sırasında doğum tarihi alınır; 16 yaş altı başvurular <strong>engellenir.</strong></p>
-<p><strong>16-18 yaş arası küçük kullanıcılar:</strong> Kayıt, <strong>veli/vasi onayı beyanıyla</strong> yapılır. Bu kullanıcılar,</p>
-<p>korunmaları amacıyla **şirketlere yönelik ticari erişim/hedef-kitle paylaşımından (kariyer keşfi) ve</p>
-<p>pazarlama iletişiminden otomatik olarak muaf tutulur**; yalnızca çekirdek platform hizmetlerinden ve</p>
-<p>ticari nitelikte olmayan önerilerden yararlanırlar. Kullanıcı 18 yaşını doldurduğunda bu işlemeler</p>
-<p>ancak kendi açık rızasıyla etkinleşir.</p>
-<h2>8. İletişim ve Şikâyet</h2>
+<h2 id="6-haklariniz-kvkk-md-11">6. Haklarınız (KVKK Md. 11)</h2>
+<p>Uygulama içinden veya <code>info@uniconnectly.com</code> üzerinden şu haklarınızı kullanabilirsiniz: verilerinizin işlenip işlenmediğini öğrenme, bilgi talep etme, amaca uygun kullanılıp kullanılmadığını öğrenme, aktarıldığı tarafları bilme, <strong>düzeltme, silme/yok edilmesini isteme, taşınabilir formatta talep etme (veri indirme), işlemeye itiraz</strong> (öneri/profillemeyi kapatma dâhil) ve Kurul'a şikâyet.</p>
+<p><strong>Yanıt süresi:</strong> Uygulama içinden yaptığınız hesap silme <strong>anında</strong> gerçekleşir; beklemeniz gerekmez. E-posta ile ilettiğiniz talepler için yasal azami süre 30 gündür — hedefimiz bu süreyi beklemeden, en kısa sürede sonuçlandırmaktır.</p>
+<h2 id="7-kucuklerin-verisi">7. Küçüklerin Verisi</h2>
+<p>UniConnectly bir üniversite öğrenci platformudur ve <strong>16 yaşından küçük kullanıcı kabul etmez.</strong> Kayıt sırasında doğum tarihi alınır; 16 yaş altı başvurular <strong>engellenir.</strong></p>
+<p><strong>16-18 yaş arası küçük kullanıcılar:</strong> Kayıt, <strong>veli/vasi onayı beyanıyla</strong> yapılır. Bu kullanıcılar, korunmaları amacıyla <strong>şirketlere yönelik ticari erişim/hedef-kitle paylaşımından (kariyer keşfi) ve pazarlama iletişiminden otomatik olarak muaf tutulur</strong>; yalnızca çekirdek platform hizmetlerinden ve ticari nitelikte olmayan önerilerden yararlanırlar. Kullanıcı 18 yaşını doldurduğunda bu işlemeler ancak kendi açık rızasıyla etkinleşir.</p>
+<h2 id="8-iletisim-ve-sik-yet">8. İletişim ve Şikâyet</h2>
 <ul>
 <li><strong>Başvuru:</strong> <code>info@uniconnectly.com</code></li>
 <li><strong>Kurul:</strong> Kişisel Verileri Koruma Kurumu — https://www.kvkk.gov.tr/</li>
 </ul>
 <hr>
-<p>hedef-kitle paylaşımı + AB aktarımı dâhil; stale işleyenler çıkarıldı).*</p>
-<p class="updated">Bu belge UniConnectly mobil uygulaması için yayımlanmıştır. Güncelleme: 2026-07-06.</p>
+<p><em>Sürüm 1.0.0 — Yürürlük tarihi: 4 Ağustos 2026.</em></p>
+<p><em>Bu metinde önemli bir değişiklik yaptığımızda sizi uygulama içinden bilgilendiririz. Geçmiş sürümler talep üzerine <code>info@uniconnectly.com</code> adresinden paylaşılır.</em></p>
+<p class="meta">Bu belge UniConnectly tarafından yayımlanmıştır. Yürürlük tarihi: <strong>5 Ağustos 2026</strong>.</p>
 </div></body></html>

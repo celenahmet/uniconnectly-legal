@@ -1,58 +1,96 @@
 <!doctype html><html lang="tr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Açık Rıza Metni — UniConnectly</title><style>
-:root{--bg:#fff;--fg:#1a1a1a;--muted:#666;--line:#e5e5e5;--accent:#6C4CE0;--card:#faf9ff}
-@media(prefers-color-scheme:dark){:root{--bg:#0f1115;--fg:#e8e8ea;--muted:#9aa0a6;--line:#242830;--accent:#9b7dff;--card:#161922}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:800px;margin:0 auto;padding:32px 20px 80px}
-header a{color:var(--accent);text-decoration:none;font-weight:600}
-h1{font-size:1.8rem;margin:.2em 0 .1em}h2{font-size:1.25rem;margin:1.6em 0 .4em;padding-top:.3em}h3{font-size:1.05rem;margin:1.2em 0 .3em}
-table{width:100%;border-collapse:collapse;margin:1em 0;font-size:.95rem;display:block;overflow-x:auto}
-th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--card)}
-ul{padding-left:1.3em}li{margin:.25em 0}a{color:var(--accent)}hr{border:none;border-top:1px solid var(--line);margin:2em 0}
-.updated{color:var(--muted);font-size:.85rem;margin-top:2.5em;border-top:1px solid var(--line);padding-top:1em}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:10px 0;display:block;text-decoration:none;color:var(--fg)}
-.card b{color:var(--accent)}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:400 700;font-display:swap;
+src:url('fonts/outfit-latin.woff2') format('woff2');
+unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:400 700;font-display:swap;
+src:url('fonts/outfit-latin-ext.woff2') format('woff2');
+unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--bg:#fff;--fg:#334155;--strong:#0f172a;--muted:#64748b;--line:#e2e8f0;--line-soft:#f1f5f9;--accent:#4f46e5;--surface:#f8fafc}
+@media(prefers-color-scheme:dark){:root{--bg:#020617;--fg:#cbd5e1;--strong:#f1f5f9;--muted:#94a3b8;--line:#1e293b;--line-soft:#0f172a;--accent:#818cf8;--surface:#0f172a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1.5rem 6rem}
+.top{border-bottom:1px solid var(--line);padding:1.5rem 0 1.25rem;margin-bottom:3rem}
+.top a{color:var(--muted);text-decoration:none;font-size:.8125rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.top a:hover{color:var(--accent)}
+h1,h2,h3{font-family:'Outfit',Inter,ui-sans-serif,system-ui,sans-serif;color:var(--strong);letter-spacing:-.02em}
+h1{font-size:2rem;line-height:1.2;font-weight:700;margin:0 0 1.75rem}
+h2{font-size:1.1875rem;font-weight:600;margin:2.75rem 0 .75rem;line-height:1.35}
+h3{font-size:1rem;font-weight:600;margin:1.75rem 0 .5rem}
+p{margin:0 0 1rem}
+strong{color:var(--strong);font-weight:600}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.9375rem;display:block;overflow-x:auto}
+th,td{border-bottom:1px solid var(--line);padding:.75rem .875rem;text-align:left;vertical-align:top}
+th{background:var(--surface);color:var(--strong);font-weight:600;font-size:.8125rem;
+letter-spacing:.03em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+tbody tr:last-child td{border-bottom:none}
+ol,ul{padding-left:1.25rem;margin:0 0 1rem}li{margin:.375rem 0}
+code{background:var(--surface);border:1px solid var(--line);border-radius:3px;
+padding:.0625rem .3125rem;font-size:.875em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+hr{border:none;border-top:1px solid var(--line);margin:2.5rem 0}
+.card{background:var(--surface);border-left:2px solid var(--accent);padding:1rem 1.25rem;margin:1.5rem 0}
+.card p:first-child{margin-top:0}.card p:last-child{margin-bottom:0}
+.meta{color:var(--muted);font-size:.8125rem;margin-top:4rem;border-top:1px solid var(--line);
+padding-top:1.25rem;line-height:1.6}
+.idx{display:block;padding:1.125rem 0;border-bottom:1px solid var(--line-soft);
+text-decoration:none;color:var(--strong)}
+.idx:hover b{color:var(--accent)}
+.idx b{font-family:'Outfit',Inter,sans-serif;font-weight:600;font-size:1.0625rem;letter-spacing:-.01em}
+.idx span{display:block;color:var(--muted);font-size:.8125rem;margin-top:.125rem;font-weight:400}
+.lead{color:var(--muted);font-size:1.0625rem;margin:0 0 2.5rem}
 </style></head>
-<body><div class="wrap"><header><a href="index.html">← UniConnectly · Yasal Belgeler</a></header><h1>Açık Rıza Metni</h1>
-<blockquote>Bu metin KVKK <strong>Md. 5/1-a</strong> kapsamında <strong>açık rızanıza</strong> tabi, <strong>opsiyonel</strong> işlemeler içindir.</blockquote>
-<blockquote>Bu işlemeler hizmeti kullanmanız için <strong>zorunlu değildir</strong>; hepsi <strong>varsayılan olarak KAPALIDIR</strong></blockquote>
-<blockquote>ve her birini ayrı ayrı açıp <strong>istediğiniz an geri çekebilirsiniz.</strong> Rıza vermemeniz veya geri</blockquote>
-<blockquote>çekmeniz, platformun temel hizmetlerinden yararlanmanızı <strong>etkilemez.</strong></blockquote>
-<blockquote><strong>16-18 yaş arası küçük kullanıcılar:</strong> Aşağıdaki ticari nitelikli işlemeler — özellikle **§1</blockquote>
-<blockquote>Pazarlama<strong> ve </strong>§3 Kariyer Keşfi / Hedef-Kitle Paylaşımı<strong> — küçüklere </strong>sunulmaz**; bu</blockquote>
-<blockquote>kullanıcılar için kapalıdır ve yalnızca 18 yaşını doldurduğunuzda etkinleşebilir.</blockquote>
+<body><div class="wrap">
+<div class="top"><a href="index.html">UniConnectly · Yasal Belgeler</a></div>
+<h1>Açık Rıza Metni</h1>
+<div class="card">Bu metin KVKK <strong>Md. 5/1-a</strong> kapsamında <strong>açık rızanıza</strong> tabi, <strong>opsiyonel</strong> işlemeler içindir. Bu işlemeler hizmeti kullanmanız için <strong>zorunlu değildir</strong>; hepsi <strong>varsayılan olarak KAPALIDIR</strong> ve her birini ayrı ayrı açıp <strong>istediğiniz an geri çekebilirsiniz.</strong> Rıza vermemeniz veya geri çekmeniz, platformun temel hizmetlerinden yararlanmanızı <strong>etkilemez.</strong></div>
+<div class="card"><strong>16-18 yaş arası küçük kullanıcılar:</strong> Aşağıdaki ticari nitelikli işlemeler — özellikle <strong>§1 Pazarlama</strong> ve <strong>§3 Kariyer Keşfi / Hedef-Kitle Paylaşımı</strong> — küçüklere <strong>sunulmaz</strong>; bu kullanıcılar için kapalıdır ve yalnızca 18 yaşını doldurduğunuzda etkinleşebilir.</div>
 <p>Aşağıdaki işlemelerden yalnızca <strong>işaretlediklerinize</strong> açık rıza vermiş olursunuz:</p>
-<h2>☐ 1. Pazarlama ve Duyuru İletişimi</h2>
-<p>Yeni özellikler, etkinlikler ve fırsatlar hakkında size e-posta / uygulama bildirimi göndermemize</p>
-<p>rıza veriyorum. *(İstediğiniz an abonelikten çıkabilir veya bildirimi kapatabilirsiniz.)*</p>
-<h2>☐ 2. Kullanım Analitiği</h2>
-<p>Uygulamayı geliştirmek için kullanım istatistiklerimin (hangi ekranlar, hangi özellikler — **kimliğimle</p>
-<p>ilişkilendirilmeden / takma-adlaştırılarak**) işlenmesine rıza veriyorum. *(Varsayılan kapalı.)*</p>
-<h2>☐ 3. Kariyer Keşfi / Hedef-Kitle Paylaşımı</h2>
-<p>İlgili şirketlerin, <strong>kariyer ve staj fırsatları</strong> sunabilmek için beni <strong>keşfedebilmesine</strong> rıza</p>
-<p>veriyorum. Bunu yaparken:</p>
+<h2 id="1-pazarlama-ve-duyuru-iletisimi">☐ 1. Pazarlama ve Duyuru İletişimi</h2>
+<p>Yeni özellikler, etkinlikler ve fırsatlar hakkında size e-posta / uygulama bildirimi göndermemize rıza veriyorum. <em>(İstediğiniz an abonelikten çıkabilir veya bildirimi kapatabilirsiniz.)</em></p>
+<h2 id="2-kullanim-analitigi">☐ 2. Kullanım Analitiği</h2>
+<p>Uygulamayı geliştirmek için kullanım istatistiklerimin (hangi ekranlar, hangi özellikler — <strong>kimliğimle ilişkilendirilmeden / takma-adlaştırılarak</strong>) işlenmesine rıza veriyorum. <em>(Varsayılan kapalı.)</em></p>
+<h2 id="3-kariyer-kesfi-hedef-kitle-paylasimi">☐ 3. Kariyer Keşfi / Hedef-Kitle Paylaşımı</h2>
+<p>İlgili şirketlerin, <strong>kariyer ve staj fırsatları</strong> sunabilmek için beni <strong>keşfedebilmesine</strong> rıza veriyorum. Bunu yaparken:</p>
 <ul>
 <li>Paylaşım <strong>yalnızca üyesi olduğum topluluklar üzerinden</strong> ve <strong>agregat</strong> (en az 5 kişilik gruplar) yapılır.</li>
 <li><strong>Adım, e-postam, telefonum, bireysel profilim veya öneri tercihlerim şirketlerle PAYLAŞILMAZ.</strong></li>
-<li>Şirket yalnızca &quot;şu hedef kitleye şu topluluk kanalıyla ulaşabilirim&quot; bilgisini görür — **sizi</li>
+<li>Şirket yalnızca "şu hedef kitleye şu topluluk kanalıyla ulaşabilirim" bilgisini görür — **sizi</li>
 </ul>
-<p>  birey olarak görmez.**</p>
+<p>birey olarak görmez.**</p>
 <ul>
 <li>Bu rızayı kapattığımda bu paylaşım <strong>derhal durur.</strong></li>
 </ul>
-<p>*(Bu paylaşım ayrıca, üyesi olduğunuz topluluğun da ayrı onayına bağlıdır — yani hem sizin hem</p>
-<p>topluluğun rızası olmadan gerçekleşmez. Çift kapı.)*</p>
+<p><em>(Bu paylaşım ayrıca, üyesi olduğunuz topluluğun da ayrı onayına bağlıdır — yani hem sizin hem topluluğun rızası olmadan gerçekleşmez. Çift kapı.)</em></p>
 <hr>
-<h3>Açık rıza hakkında</h3>
+<h3 id="acik-riza-hakkinda">Açık rıza hakkında</h3>
 <ul>
-<li><strong>Geri çekme:</strong> Her rızayı uygulama içi <strong>Ayarlar → Gizlilik</strong> üzerinden tek dokunuşla geri</li>
+<li><strong>Geri çekme:</strong> Rızanızı istediğiniz an geri çekebilirsiniz.</li>
+<ul>
+<li><strong>§3 Kariyer Keşfi / Hedef-Kitle Paylaşımı:</strong> uygulama içi **Profil → Uygulama ve Gizlilik →</li>
 </ul>
-<p>  çekebilirsiniz. Geri çekme, geri çekme anından itibaren geçerlidir (geçmiş işlemeyi etkilemez).</p>
+</ul>
+<p>Gizlilik** bölümünden kapatabilirsiniz; kapattığınız anda paylaşım durur.</p>
 <ul>
-<li><strong>Kayıt:</strong> Rıza ve geri çekmeleriniz, ispat amacıyla tarih damgasıyla kaydedilir (IP&#x27;siz).</li>
+<ul>
+<li><strong>§1 Pazarlama ve §2 Analitik:</strong> uygulama içi <strong>Profil → Uygulama ve Gizlilik → Onaylar</strong></li>
+</ul>
+</ul>
+<p>bölümünden anahtarı kapatmanız yeterlidir. Dilerseniz <code>info@uniconnectly.com</code> adresine de yazabilirsiniz.</p>
+<ul>
+<ul>
+<li>Geri çekme, geri çekme anından itibaren geçerlidir; geçmişte hukuka uygun yapılmış işlemeyi</li>
+</ul>
+</ul>
+<p>etkilemez.</p>
+<ul>
+<li><strong>Kayıt:</strong> Rıza ve geri çekmeleriniz, ispat amacıyla tarih damgasıyla kaydedilir (IP kaydedilmez).</li>
 <li><strong>Zorunlu değil:</strong> Yukarıdakilerin hiçbiri olmadan da platformu tam kullanabilirsiniz.</li>
 </ul>
-<blockquote>Detaylı bilgi için <strong>Aydınlatma Metni</strong> ve <strong>Gizlilik Politikası</strong>&#x27;na bakınız.</blockquote>
-<p class="updated">Bu belge UniConnectly mobil uygulaması için yayımlanmıştır. Güncelleme: 2026-07-06.</p>
+<div class="card">Detaylı bilgi için <strong>Aydınlatma Metni</strong> ve <strong>Gizlilik Politikası</strong>'na bakınız.</div>
+<p class="meta">Bu belge UniConnectly tarafından yayımlanmıştır. Yürürlük tarihi: <strong>4 Ağustos 2026</strong>.</p>
 </div></body></html>

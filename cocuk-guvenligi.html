@@ -1,94 +1,127 @@
 <!doctype html><html lang="tr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Çocuk Güvenliği Standartları — UniConnectly</title><style>
-:root{--bg:#fff;--fg:#1a1a1a;--muted:#666;--line:#e5e5e5;--accent:#6C4CE0;--card:#faf9ff}
-@media(prefers-color-scheme:dark){:root{--bg:#0f1115;--fg:#e8e8ea;--muted:#9aa0a6;--line:#242830;--accent:#9b7dff;--card:#161922}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:820px;margin:0 auto;padding:32px 20px 80px}
-header a{color:var(--accent);text-decoration:none;font-weight:600}
-h1{font-size:1.8rem;margin:.2em 0 .1em}h2{font-size:1.25rem;margin:1.7em 0 .4em;padding-top:.3em}
-ol,ul{padding-left:1.3em}li{margin:.35em 0}a{color:var(--accent)}
-.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 20px;margin:16px 0}
-.toc ul{margin:.3em 0}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:14px 0}
-.updated{color:var(--muted);font-size:.85rem;margin-top:2.5em;border-top:1px solid var(--line);padding-top:1em}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:400 700;font-display:swap;
+src:url('fonts/outfit-latin.woff2') format('woff2');
+unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:400 700;font-display:swap;
+src:url('fonts/outfit-latin-ext.woff2') format('woff2');
+unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--bg:#fff;--fg:#334155;--strong:#0f172a;--muted:#64748b;--line:#e2e8f0;--line-soft:#f1f5f9;--accent:#4f46e5;--surface:#f8fafc}
+@media(prefers-color-scheme:dark){:root{--bg:#020617;--fg:#cbd5e1;--strong:#f1f5f9;--muted:#94a3b8;--line:#1e293b;--line-soft:#0f172a;--accent:#818cf8;--surface:#0f172a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1.5rem 6rem}
+.top{border-bottom:1px solid var(--line);padding:1.5rem 0 1.25rem;margin-bottom:3rem}
+.top a{color:var(--muted);text-decoration:none;font-size:.8125rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.top a:hover{color:var(--accent)}
+h1,h2,h3{font-family:'Outfit',Inter,ui-sans-serif,system-ui,sans-serif;color:var(--strong);letter-spacing:-.02em}
+h1{font-size:2rem;line-height:1.2;font-weight:700;margin:0 0 1.75rem}
+h2{font-size:1.1875rem;font-weight:600;margin:2.75rem 0 .75rem;line-height:1.35}
+h3{font-size:1rem;font-weight:600;margin:1.75rem 0 .5rem}
+p{margin:0 0 1rem}
+strong{color:var(--strong);font-weight:600}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.9375rem;display:block;overflow-x:auto}
+th,td{border-bottom:1px solid var(--line);padding:.75rem .875rem;text-align:left;vertical-align:top}
+th{background:var(--surface);color:var(--strong);font-weight:600;font-size:.8125rem;
+letter-spacing:.03em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+tbody tr:last-child td{border-bottom:none}
+ol,ul{padding-left:1.25rem;margin:0 0 1rem}li{margin:.375rem 0}
+code{background:var(--surface);border:1px solid var(--line);border-radius:3px;
+padding:.0625rem .3125rem;font-size:.875em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+hr{border:none;border-top:1px solid var(--line);margin:2.5rem 0}
+.card{background:var(--surface);border-left:2px solid var(--accent);padding:1rem 1.25rem;margin:1.5rem 0}
+.card p:first-child{margin-top:0}.card p:last-child{margin-bottom:0}
+.meta{color:var(--muted);font-size:.8125rem;margin-top:4rem;border-top:1px solid var(--line);
+padding-top:1.25rem;line-height:1.6}
+.idx{display:block;padding:1.125rem 0;border-bottom:1px solid var(--line-soft);
+text-decoration:none;color:var(--strong)}
+.idx:hover b{color:var(--accent)}
+.idx b{font-family:'Outfit',Inter,sans-serif;font-weight:600;font-size:1.0625rem;letter-spacing:-.01em}
+.idx span{display:block;color:var(--muted);font-size:.8125rem;margin-top:.125rem;font-weight:400}
+.lead{color:var(--muted);font-size:1.0625rem;margin:0 0 2.5rem}
 </style></head>
 <body><div class="wrap">
-<header><a href="index.html">← UniConnectly · Yasal Belgeler</a></header>
+<div class="top"><a href="index.html">UniConnectly · Yasal Belgeler</a></div>
 <h1>UniConnectly — Çocuk Güvenliği Standartları</h1>
 <p><strong>UniConnectly</strong>, çocukların cinsel istismarı ve sömürüsüne (CSAE) karşı sıfır tolerans ilkesiyle hareket eder. Bu belge, UniConnectly uygulamasının çocuk güvenliğine yönelik standartlarını, önleyici uygulamalarını ve iletişim bilgilerini kamuya açık olarak beyan eder.</p>
-
-<div class="toc">
-<strong>İçindekiler</strong>
-<ul>
-<li><a href="#taahhut">1. Taahhüdümüz</a></li>
-<li><a href="#tanim">2. CSAE ve CSAM Tanımı</a></li>
-<li><a href="#yasaklar">3. Yasak Davranışlar</a></li>
-<li><a href="#onleme">4. Önleme ve Moderasyon</a></li>
-<li><a href="#bildirim">5. Uygulama İçi Bildirim Mekanizması</a></li>
-<li><a href="#raporlama">6. CSAM Tespiti ve Yetkililere Raporlama</a></li>
-<li><a href="#yasalar">7. Yasalara Uygunluk</a></li>
-<li><a href="#iletisim">8. İletişim / Belirlenmiş Sorumlu</a></li>
-</ul>
-</div>
-
-<h2 id="taahhut">1. Taahhüdümüz</h2>
+<h2 id="1-taahhudumuz">1. Taahhüdümüz</h2>
 <p>UniConnectly, üniversite öğrencileri, mezunlar, topluluklar ve kurumlara yönelik <strong>18 yaş ve üzeri</strong> bireyler için tasarlanmış bir sosyal platformdur. Platform reşit olmayan bireyleri hedeflemez. Çocukların cinsel istismarı ve sömürüsüne ilişkin hiçbir içeriğe, davranışa veya girişime izin verilmez; bu tür içerik ve davranışlar tespit edildiğinde derhal kaldırılır ve yasal mercilere bildirilir.</p>
-
-<h2 id="tanim">2. CSAE ve CSAM Tanımı</h2>
+<h2 id="2-csae-ve-csam-tanimi">2. CSAE ve CSAM tanımı</h2>
 <p>Bu belgede kullanılan tanımlar:</p>
 <ul>
-<li><strong>CSAE (Çocuğun Cinsel İstismarı ve Sömürüsü):</strong> Bir çocuğu cinsel sömürü amacıyla kandırma/hazırlama (<em>grooming</em>), bir çocuğu cinsel içerikli materyal yoluyla tehdit/şantaj (<em>sextortion</em>), bir çocuğun cinsel amaçlarla kaçakçılığı/ticareti (<em>trafficking</em>) ve çocuklara yönelik her türlü cinsel içerikli istismar dâhil olmak üzere tüm biçimlerini kapsar.</li>
-<li><strong>CSAM (Çocuğun Cinsel İstismarı Nitelikli Materyal):</strong> Bir çocuğun cinsel istismarını gösteren veya betimleyen her türlü görsel, video, metin veya diğer materyal.</li>
+<li><strong>CSAE (Çocuğun Cinsel İstismarı ve Sömürüsü):</strong> Bir çocuğu cinsel sömürü</li>
 </ul>
-
-<h2 id="yasaklar">3. Yasak Davranışlar</h2>
+<p>amacıyla kandırma/hazırlama (<em>grooming</em>), bir çocuğu cinsel içerikli materyal yoluyla tehdit/şantaj (<em>sextortion</em>), bir çocuğun cinsel amaçlarla kaçakçılığı/ticareti (<em>trafficking</em>) ve çocuklara yönelik her türlü cinsel içerikli istismar dâhil olmak üzere tüm biçimlerini kapsar.</p>
+<ul>
+<li><strong>CSAM (Çocuğun Cinsel İstismarı Nitelikli Materyal):</strong> Bir çocuğun cinsel</li>
+</ul>
+<p>istismarını gösteren veya betimleyen her türlü görsel, video, metin veya diğer materyal.</p>
+<h2 id="3-yasak-davranislar">3. Yasak davranışlar</h2>
 <p>UniConnectly'de aşağıdakiler kesinlikle yasaktır ve hesabın kalıcı kapatılmasıyla sonuçlanır:</p>
 <ul>
-<li>CSAM üretmek, yüklemek, paylaşmak, talep etmek veya bağlantısını vermek,</li>
-<li>Bir çocuğu cinsel amaçla kandırmaya/hazırlamaya (grooming) yönelik her türlü iletişim,</li>
-<li>Cinsel içerikli materyalle şantaj (sextortion) veya çocuk ticareti girişimi,</li>
-<li>Reşit olmayan bireyleri cinselleştiren içerik veya bu içeriği normalleştiren davranışlar,</li>
-<li>Platformu çocuklara zarar vermek amacıyla kullanan her türlü girişim.</li>
+<li>CSAM üretmek, yüklemek, paylaşmak, talep etmek veya bağlantısını vermek</li>
+<li>Bir çocuğu cinsel amaçla kandırmaya/hazırlamaya (grooming) yönelik her türlü</li>
 </ul>
-
-<h2 id="onleme">4. Önleme ve Moderasyon</h2>
+<p>iletişim</p>
 <ul>
-<li><strong>Yaş sınırı:</strong> Platform 18 yaş ve üzeri kullanıcılar içindir; reşit olmayan kullanıcılar hedeflenmez.</li>
-<li><strong>İçerik moderasyonu:</strong> Kullanıcı tarafından oluşturulan tüm içerik (gönderi, itiraf, mesaj, medya, etkinlik/duyuru) topluluk kurallarına ve bu standartlara tabidir; ihlal eden içerik kaldırılır.</li>
-<li><strong>Yetkili denetimi:</strong> Topluluk ve kurum yöneticileri ile UniConnectly moderasyon ekibi, uygunsuz içeriği kaldırma ve hesap askıya alma/kapatma yetkisine sahiptir.</li>
-<li><strong>Hızlı müdahale:</strong> Çocuk güvenliğiyle ilgili bildirimler öncelikli olarak ve gecikmeksizin incelenir.</li>
+<li>Cinsel içerikli materyalle şantaj (sextortion) veya çocuk ticareti girişimi</li>
+<li>Reşit olmayan bireyleri cinselleştiren içerik veya bu içeriği normalleştiren</li>
 </ul>
-
-<h2 id="bildirim">5. Uygulama İçi Bildirim Mekanizması</h2>
+<p>davranışlar</p>
+<ul>
+<li>Platformu çocuklara zarar vermek amacıyla kullanan her türlü girişim</li>
+</ul>
+<h2 id="4-onleme-ve-moderasyon">4. Önleme ve moderasyon</h2>
+<ul>
+<li><strong>Yaş sınırı:</strong> Platform 18 yaş ve üzeri kullanıcılar içindir; reşit olmayan</li>
+</ul>
+<p>kullanıcılar hedeflenmez.</p>
+<ul>
+<li><strong>İçerik moderasyonu:</strong> Kullanıcı tarafından oluşturulan tüm içerik (gönderi,</li>
+</ul>
+<p>itiraf, mesaj, medya, etkinlik/duyuru) topluluk kurallarına ve bu standartlara tabidir; ihlal eden içerik kaldırılır.</p>
+<ul>
+<li><strong>Yetkili denetimi:</strong> Topluluk ve kurum yöneticileri ile UniConnectly</li>
+</ul>
+<p>moderasyon ekibi, uygunsuz içeriği kaldırma ve hesap askıya alma/kapatma yetkisine sahiptir.</p>
+<ul>
+<li><strong>Hızlı müdahale:</strong> Çocuk güvenliğiyle ilgili bildirimler öncelikli olarak ve</li>
+</ul>
+<p>gecikmeksizin incelenir.</p>
+<h2 id="5-uygulama-ici-bildirim-mekanizmasi">5. Uygulama içi bildirim mekanizması</h2>
 <p>UniConnectly, kullanıcıların çocuk güvenliği dâhil güvenlik endişelerini <strong>uygulama içinden</strong> bildirmesine olanak tanır:</p>
 <ul>
-<li>İçerik (etkinlik, duyuru, itiraf, profil vb.) üzerindeki <strong>"Şikâyet Et / Bildir"</strong> seçeneğiyle içerik doğrudan raporlanabilir.</li>
-<li><strong>İletişim / Geri Bildirim</strong> ekranı üzerinden UniConnectly ekibine doğrudan başvurulabilir.</li>
-<li>Aşağıdaki <a href="#iletisim">iletişim adresine</a> e-posta ile bildirim yapılabilir.</li>
+<li>İçerik (etkinlik, duyuru, itiraf, profil vb.) üzerindeki</li>
 </ul>
-<p>Bildirilen çocuk güvenliği vakaları öncelikli olarak incelenir; doğrulanan ihlallerde içerik kaldırılır, ilgili hesap kapatılır ve gerekli hallerde yetkililere bildirimde bulunulur.</p>
-
-<h2 id="raporlama">6. CSAM Tespiti ve Yetkililere Raporlama</h2>
+<p><strong>"Şikâyet Et / Bildir"</strong> seçeneğiyle içerik doğrudan raporlanabilir.</p>
+<ul>
+<li><strong>İletişim / Geri Bildirim</strong> ekranı üzerinden UniConnectly ekibine doğrudan</li>
+</ul>
+<p>başvurulabilir.</p>
+<ul>
+<li>Aşağıdaki iletişim adresine e-posta ile bildirim yapılabilir.</li>
+</ul>
+<p>Bildirilen çocuk güvenliği vakaları öncelikli olarak incelenir; doğrulanan ihlallerde içerik kaldırılır, ilgili hesap kapatılır ve gerekli hâllerde yetkililere bildirimde bulunulur.</p>
+<h2 id="6-csam-tespiti-ve-yetkililere-raporlama">6. CSAM tespiti ve yetkililere raporlama</h2>
 <p>Platformumuzda CSAM tespit edildiğinde veya bildirildiğinde:</p>
 <ol>
-<li>İçerik derhal kaldırılır ve erişime kapatılır,</li>
-<li>İlgili hesap(lar) kalıcı olarak kapatılır,</li>
-<li>Vaka, yürürlükteki yasalar uyarınca yetkili mercilere bildirilir. Türkiye'de <strong>Emniyet Genel Müdürlüğü Siber Suçlarla Mücadele</strong> birimleriyle ve gerekli hallerde uluslararası mercilerle (ör. <strong>NCMEC</strong>) iş birliği yapılır,</li>
-<li>Yasal süreç için gerekli kanıtlar mevzuata uygun biçimde saklanır ve yetkililerle paylaşılır.</li>
+<li>İçerik derhal kaldırılır ve erişime kapatılır.</li>
+<li>İlgili hesap veya hesaplar kalıcı olarak kapatılır.</li>
+<li>Vaka, yürürlükteki yasalar uyarınca yetkili mercilere bildirilir. Türkiye'de</li>
 </ol>
-
-<h2 id="yasalar">7. Yasalara Uygunluk</h2>
+<p><strong>Emniyet Genel Müdürlüğü Siber Suçlarla Mücadele</strong> birimleriyle ve gerekli hâllerde uluslararası mercilerle (ör. <strong>NCMEC</strong>) iş birliği yapılır.</p>
+<ol>
+<li>Yasal süreç için gerekli kanıtlar mevzuata uygun biçimde saklanır ve</li>
+</ol>
+<p>yetkililerle paylaşılır.</p>
+<h2 id="7-yasalara-uygunluk">7. Yasalara uygunluk</h2>
 <p>UniConnectly, çocukların güvenliğiyle ilgili tüm yürürlükteki yerel ve ulusal yasalara (Türk Ceza Kanunu ilgili hükümleri, 5651 sayılı Kanun, KVKK ve ilgili mevzuat dâhil) uymayı ve ilgili bölgesel/ulusal yetkililere gerekli raporlamayı yapmayı taahhüt eder. Ayrıca Google Play Çocuk Güvenliği Standartları Politikası'na uyum sağlar.</p>
-
-<h2 id="iletisim">8. İletişim / Belirlenmiş Sorumlu</h2>
-<div class="card">
-<p><strong>UniConnectly Çocuk Güvenliği Sorumlusu</strong><br>
-Çocuk güvenliği, CSAE/CSAM ile ilgili bildirim, soru ve iş birliği talepleri için:</p>
-<p>E-posta: <a href="mailto:info@uniconnectly.com">info@uniconnectly.com</a><br>
-Alternatif: <a href="mailto:info@uniconnectly.com">info@uniconnectly.com</a></p>
-<p>Yetkili merciler, bu adresler üzerinden uygulamamızın CSAM önleme uygulamaları ve bu politikaya uygunluğu hakkında bilgi talep edebilir; taleplere gecikmeksizin yanıt verilir.</p>
-</div>
-
-<p class="updated">Bu belge UniConnectly mobil uygulaması için yayımlanmıştır. Google Play Çocuk Güvenliği Standartları Politikası kapsamında kamuya açık olarak sunulmaktadır. Güncelleme: 2026-07-08.</p>
+<h2 id="8-iletisim-ve-belirlenmis-sorumlu">8. İletişim ve belirlenmiş sorumlu</h2>
+<div class="card"><strong>UniConnectly Çocuk Güvenliği Sorumlusu</strong> Çocuk güvenliği, CSAE/CSAM ile ilgili bildirim, soru ve iş birliği talepleri için: <a href="mailto:info@uniconnectly.com">info@uniconnectly.com</a> Yetkili merciler, bu adres üzerinden uygulamamızın CSAM önleme uygulamaları ve bu politikaya uygunluğu hakkında bilgi talep edebilir; taleplere gecikmeksizin yanıt verilir.</div>
+<p>Bu belge, Google Play Çocuk Güvenliği Standartları Politikası kapsamında kamuya açık olarak sunulmaktadır.</p>
+<p class="meta">Bu belge UniConnectly tarafından yayımlanmıştır ve uygulamanın web yayını kapsamında sunulmaktadır.</p>
 </div></body></html>
